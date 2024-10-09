@@ -1,0 +1,18 @@
+/* src/styles/ProductDetails.css */
+.product-details {
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+  }
+  
+  .product-details h2 {
+    margin-bottom: 10px;
+  }
+  
+  .product-details p {
+    margin: 5px 0;
+  }
+  
