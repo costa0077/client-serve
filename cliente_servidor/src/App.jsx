@@ -1,7 +1,7 @@
 // src/App.jsx
 import React from 'react';
-import ProductForm from './components/ProductForm';  // Verifique o caminho
-import ProductList from './components/ProductList';  // Verifique o caminho
+import ProductForm from './componets/ProductForm';  // Verifique o caminho
+import ProductList from './componets/ProductList';  // Verifique o caminho
 import './App.css';  // Estilos globais
 
 function App() {
