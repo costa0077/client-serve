@@ -12,6 +12,22 @@ router.get('/', async (req, res) => {
     }
 });
 
+// Rota para buscar um produto específico pelo ID
+router.get('/:id', async (req, res) => {
+    const { id } = req.params; // Obtém o ID do produto da URL
+
+    try {
+        const produto = await Produto.findOne({ where: { id } }); // Busca o produto pelo ID
+        if (produto) {
+            res.json(produto); // Retorna o produto encontrado em formato JSON
+        } else {
+            res.status(404).json({ message: 'Produto não encontrado' }); // Se o produto não for encontrado
+        }
+    } catch (error) {
+        res.status(500).json({ message: 'Erro ao buscar produto', error });
+    }
+});
+
 // Rota para adicionar um novo produto
 router.post('/create', async (req, res) => { // Prefixo 'create' para adicionar produto
     const { nome, descricao, preco, quantidade } = req.body; // Extrai os dados do corpo da requisição
