@@ -1,22 +1,35 @@
-// src/components/ProductList.jsx
 import React from 'react';
 
-function ProductList() {
-  const products = [
-    { id: 1, name: 'Produto 1', description: 'Descrição do produto 1', price: 100, quantity: 10 },
-    { id: 2, name: 'Produto 2', description: 'Descrição do produto 2', price: 150, quantity: 5 }
-  ];
-
+function ProductList({ products = [], onEdit, onDelete }) {  // Definindo um array vazio como padrão
   return (
-    <div>
-      <h2>Lista de Produtos</h2>
-      <ul>
-        {products.map(product => (
-          <li key={product.id}>
-            {product.name} - {product.description} - R$ {product.price} - {product.quantity} unidades
-          </li>
-        ))}
-      </ul>
+    <div className="product-list">
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Desc</th>
+            <th>Preço</th>
+            <th>Quantidade</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          {products.map((product, index) => (
+            <tr key={index}>
+              <td>{index + 1}</td>
+              <td>{product.name}</td>
+              <td>{product.desc}</td>
+              <td>{`R$${product.price}`}</td>
+              <td>{product.quantity}</td>
+              <td>
+                <button onClick={() => onEdit(index)}>✏️</button>
+                <button onClick={() => onDelete(index)}>🗑️</button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 }

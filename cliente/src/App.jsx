@@ -1,17 +1,33 @@
-// src/App.jsx
-import React from 'react';
-import ProductForm from './componets/ProductForm';  // Verifique o caminho
-import ProductList from './componets/ProductList';  // Verifique o caminho
-import './App.css';  // Estilos globais
+import React, { useState } from 'react';
+import ProductForm from './componets/ProductForm'; 
+import ProductList from './componets/ProductList'; 
+import './App.css';  
 
 function App() {
+  const [products, setProducts] = useState([]);
+
+  const addProduct = (product) => {
+    setProducts([...products, product]);
+  };
+
+  const editProduct = (index) => {
+    const newProducts = [...products];
+    // Lógica para edição do produto
+    setProducts(newProducts);
+  };
+
+  const deleteProduct = (index) => {
+    const newProducts = products.filter((_, i) => i !== index);
+    setProducts(newProducts);
+  };
+
   return (
     <div className="App">
       <header>
-        <h1>Gerenciamento de Produtos</h1>
+        <h1>Store System</h1>
       </header>
-      <ProductForm />  {/* Formulário de adicionar produto */}
-      <ProductList />  {/* Lista de produtos */}
+      <ProductForm onAddProduct={addProduct} />
+      <ProductList products={products} onEdit={editProduct} onDelete={deleteProduct} />
     </div>
   );
 }
