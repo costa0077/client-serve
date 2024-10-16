@@ -1,0 +1,144 @@
+/* Reiniciar margens e espaçamentos padrões */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    background-color: #000000;
+    /* Cor de fundo uniforme para todo o body */
+    color: white;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.App {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 100vh;
+}
+
+header {
+    width: 100%;
+    padding: 20px;
+    background-color: #000000;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 3rem;
+}
+
+.main-content {
+    width: 80%;
+    max-width: 1200px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 0;
+}
+
+.product-form,
+.product-list {
+    width: 100%;
+    background-color: #6c757d;
+    /* Mesma cor de fundo */
+    padding: 30px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+
+.product-form input,
+.product-form button {
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 15px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.product-form input {
+    background-color: #f8f9fa;
+    color: #212529;
+}
+
+.product-form button {
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.product-form button:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+.product-list table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #6c757d;
+    /* Mesma cor de fundo da lista */
+    border: none;
+    /* Remove qualquer borda visível */
+}
+
+.product-list th,
+.product-list td {
+    padding: 15px;
+    text-align: left;
+    background-color: #6c757d;
+    /* Define a mesma cor de fundo em todos os elementos */
+    border: none;
+    /* Remove as bordas */
+    color: white;
+    /* Cor do texto para manter contraste */
+}
+
+.product-list th {
+    background-color: #343a40;
+    /* Cor diferente para o cabeçalho */
+}
+
+.product-list td {
+    background-color: #121511;
+    /* Fundo das células da tabela */
+}
+
+.product-list button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #007bff;
+    text-decoration: underline;
+    transition: color 0.3s;
+}
+
+.product-list button:hover {
+    color: #0056b3;
+}
+
+footer {
+    width: 100%;
+    padding: 15px;
+    background-color: #000000;
+    text-align: center;
+}
