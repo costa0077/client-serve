@@ -18,6 +18,10 @@ const Produto = sequelize.define('Produto', {
     type: DataTypes.INTEGER,
     allowNull: false,
   },
+  categoria: {
+    type: DataTypes.STRING,
+    allowNull: false, 
+  },
 }, {
   timestamps: true, // Adiciona createdAt e updatedAt
 });

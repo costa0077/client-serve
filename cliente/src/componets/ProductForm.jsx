@@ -1,13 +1,16 @@
 import React, { useState } from 'react';
 
 function ProductForm() {
+  // Estados
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
   const [price, setPrice] = useState(0);
   const [quantity, setQuantity] = useState(0);
+  const [category, setCategory] = useState(''); // Novo estado para categoria
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(null);
 
+  // Função para lidar com o envio do formulário
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -25,6 +28,7 @@ function ProductForm() {
           descricao: description,
           preco: parseFloat(price),
           quantidade: parseInt(quantity),
+          categoria: category, // Incluindo a categoria
         }),
       });
 
@@ -42,6 +46,7 @@ function ProductForm() {
       setDescription('');
       setPrice(0);
       setQuantity(0);
+      setCategory(''); // Limpar o campo de categoria
 
       window.location.reload();
 
@@ -51,6 +56,7 @@ function ProductForm() {
     }
   };
 
+  // Renderização do formulário
   return (
     <div className="product-form">
       <h2>Adicionar Produto</h2>
@@ -80,6 +86,12 @@ function ProductForm() {
           placeholder="Quantidade"
           value={quantity}
           onChange={(e) => setQuantity(e.target.value)}
+        />
+        <input
+          type="text"
+          placeholder="Categoria"
+          value={category}
+          onChange={(e) => setCategory(e.target.value)}
         />
         <button type="submit">Adicionar Produto</button>
       </form>
